@@ -233,6 +233,38 @@
     margin-top: 10px;
   }
 }
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 
 
 
@@ -421,6 +453,13 @@
   }
   </script>
 <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script>
+  function toggleMenu() {
+    var nav = document.getElementById("navLinks");
+    nav.classList.toggle("active");
+  }
+</script>
+
 
 <!-- Checkout Modal -->
 <div id="checkoutModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000b3; justify-content:center; align-items:center; z-index:2000;">
