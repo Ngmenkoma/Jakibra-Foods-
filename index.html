@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="Burger.jpg">
+  <title>JAKIBRA FOODS</title>
+
+  <!-- Boxicons & Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      color: #ff7e00;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    .navbar a:hover {
+      background: #ff7e00;
+      color: white;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .main-section {
+      display: none;
+      padding: 6rem 1rem 2rem;
+    }
+
+    .main-section.active {
+      display: block;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 80vh;
+    }
+
+    .swiper-slide.container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 2rem;
+    }
+
+    .home-text {
+      max-width: 500px;
+    }
+
+    .home-text h1 {
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    .home-text span {
+      color: #ff7e00;
+      font-weight: bold;
+    }
+
+    .swiper-slide img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .btn {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: #0c2eb6;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #ff7e00;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #ff7e00;
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    /* Transparent background image for About section */
+    #about {
+      background-image: url('images/about-f1.jpg'); /* Replace with your image path */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 2rem;
+      border-radius: 12px;
+      color: #333;
+    }
+
+    #about .overlay {
+      background-color: rgba(255, 255, 255, 0.75); /* semi-transparent white overlay */
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    .testimonial img {
+  width: 80px;             /* You can change this size */
+  height: 80px;
+  border-radius: 50%;      /* Makes the image circular */
+  object-fit: cover;       /* Ensures the image fits without distortion */
+  margin-bottom: 0.5rem;   /* Optional spacing */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional styling */
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo"><i class='bx bxs-basket'></i>Delicacy</a>
+    <ul class="navbar">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#customers">Customers</a></li>
+    </ul>
+    <div class="profile">
+      <img src="BURGER.jpg" alt="Profile Image" />
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <section class="main-section active" id="home">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide container">
+          <div class="home-text">
+            <span>We are delicacy</span>
+            <h1>Choose delicacy<br />the best healthy<br />chicken salad</h1>
+            <a href="#products" class="btn">Shop Now <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+          <img src="f6.jpg" alt="Delicacy Image 1" />
+        </div>
+        <div class="swiper-slide container">
+          <div class="home-text">
+            <span>We are delicacy</span>
+            <h1>Fresh Meals<br />Made With Love<br />Just For You</h1>
+            <a href="#products" class="btn">Order Now <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+          <img src="f1.jpg" alt="Delicacy Image 2" />
+        </div>
+        <div class="swiper-slide container">
+          <div class="home-text">
+            <span>We are delicacy</span>
+            <h1>Affordable & Tasty<br />For Every Family</h1>
+            <a href="#products" class="btn">View Menu <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+          <img src="yam fries.jpg" alt="Delicacy Image 3" />
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="main-section" id="products">
+    <h2>Our Menu</h2>
+    <p>Check out our delicious food products.</p>
+    <div class="products-container">
+      <!-- product cards -->
+      <div class="product-card"><img src="f1.jpg" alt="Jolof Rice" /><h3>Jollof Rice</h3><p class="price"> ₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com',  10.00)">Order Now</button>
+</div>
+      <div class="product-card"><img src="f2.jpg" alt="Kenkey" /><h3>Kenkey</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
+      <div class="product-card"><img src="f3.jpg" alt="Waakye" /><h3>Waakye</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
+      <div class="product-card"><img src="f4.jpg" alt="Jollof" /><h3>Jollof</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
+      <div class="product-card"><img src="f5.jpg" alt="Fufu" /><h3>Fufu</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
+      <div class="product-card"><img src="banku.jpg" alt="Banku" /><h3>Banku</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
+      <div class="product-card"><img src="Tuzaafi.jpg" alt="Tuo-zaafi" /><h3>Tuo-zaafi</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
+      <div class="product-card"><img src="f6.jpg" alt="Rice Ball" /><h3>Rice Ball</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
+      <div class="product-card"><img src="f9.jpg" alt="Plain Rice" /><h3>Plain Rice</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
+      <div class="product-card"><img src="f10.jpg" alt="kokonte" /><h3>Kokonte</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="main-section" id="about">
+    <div class="overlay">
+      <h2>About Us</h2>
+      <p>At <strong>JAKIBRA FOODS</strong>, food is more than just a meal – it's a celebration of flavor, culture, and love. Founded with the mission to serve homemade goodness with modern convenience, we offer a wide range of dishes that cater to every craving.</p>
+      <p>Our chefs use only the freshest ingredients, combining traditional recipes with a creative twist to deliver meals that are both comforting and exciting. Whether you’re in the mood for a quick bite or a full-course feast, we’ve got you covered.</p>
+      <p>We believe in fast, friendly service and quality you can taste in every bite. So go ahead, explore our menu, and let your taste buds take a journey!</p>
+      <p><em>Deliciously made, lovingly served.</em></p>
+    </div>
+  </section>
+
+  <!-- Customers Section -->
+  <section class="main-section" id="customers">
+    <h2>What Our Customers Say</h2>
+    <p>Testimonials and reviews from our happy customers.</p>
+    <div class="testimonial">
+      
+  <img src="Ellis.jpg" alt="Customer Photo">
+  <h3>Wemoatu Ellis</h3>
+  <p>"I absolutely love the quality of the food! Fast delivery and beautiful packaging."</p>
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <img src="Peniel.jpg" alt="Customer 1">
+      <h3>Peniel</h3>
+      <p>"Absolutely delicious food!"</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+    <div class="testimonial">
+      <img src="Mat 1.jpg" alt="Customer 2">
+      <h3>Kelvin</h3>
+      <p>"Quality is top-notch and delivery was super fast. Highly recommend!"</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+</div>
+
+</div>
+
+  </section>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Initialization -->
+  <script>
+    const swiper = new Swiper('.mySwiper', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
+  </script>
+
+  <!-- Navigation Logic -->
+  <script>
+    const navLinks = document.querySelectorAll(".navbar a");
+    const sections = document.querySelectorAll(".main-section");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        sections.forEach(section => section.classList.remove("active"));
+        document.getElementById(targetId).classList.add("active");
+      });
+    });
+
+    document.querySelectorAll(".btn[href^='#']").forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          sections.forEach(section => section.classList.remove("active"));
+          targetSection.classList.add("active");
+        }
+      });
+    });
+     function payWithPaystack(email, amount) {
+    let handler = PaystackPop.setup({
+      key: 'pk_live_623aac8344ef10cc7a7d52f2918155b9185604bf',  // Replace with your actual Paystack public key
+      email: email,
+      amount: amount * 100,  // Convert to pesewas
+      currency: "GHS",
+      ref: 'JAKIBRA-' + Math.floor(Math.random() * 1000000000 + 1),
+      callback: function(response) {
+        alert('Payment successful! Reference: ' + response.reference);
+        // Optional: Send reference to backend to confirm transaction
+      },
+      onClose: function() {
+        alert('Transaction was cancelled');
+      }
+    });
+    handler.openIframe();
+  }
+  </script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<!-- Checkout Modal -->
+<div id="checkoutModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000b3; justify-content:center; align-items:center; z-index:2000;">
+  <div style="background:white; padding:2rem; border-radius:10px; max-width:400px; width:90%;">
+    <h3 style="margin-bottom:1rem;">Enter Your Details</h3>
+    <input type="text" id="customerName" placeholder="Full Name" style="width:100%; padding:0.5rem; margin-bottom:0.5rem;" required />
+    <input type="email" id="customerEmail" placeholder="Email Address" style="width:100%; padding:0.5rem; margin-bottom:1rem;" required />
+    <button onclick="startPayment()" class="btn" style="width:100%;">Proceed to Payment</button>
+    <br><br>
+    <button onclick="closeModal()" style="width:100%; background:#ccc; color:#000; border:none; padding:0.5rem; border-radius:5px;">Cancel</button>
+  </div>
+</div>
+
+</body>
+</html>
