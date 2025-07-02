@@ -336,17 +336,27 @@
     <p>Check out our delicious food products.</p>
     <div class="products-container">
       <!-- product cards -->
-      <div class="product-card"><img src="f1.jpg" alt="Jolof Rice" /><h3>Jollof Rice</h3><p class="price"> ₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com',  10.00)">Order Now</button>
+      <div class="product-card"><img src="f1.jpg" alt="Jolof Rice" /><h3>Jollof Rice</h3><p class="price"> ₵10.00</p><button class="btn" onclick="openModal('Jollof Rice')">Order Now</button>
+
 </div>
-      <div class="product-card"><img src="f2.jpg" alt="Kenkey" /><h3>Kenkey</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
-      <div class="product-card"><img src="f3.jpg" alt="Waakye" /><h3>Waakye</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
-      <div class="product-card"><img src="f4.jpg" alt="Jollof" /><h3>Jollof</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
-      <div class="product-card"><img src="f5.jpg" alt="Fufu" /><h3>Fufu</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
-      <div class="product-card"><img src="banku.jpg" alt="Banku" /><h3>Banku</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
-      <div class="product-card"><img src="Tuzaafi.jpg" alt="Tuo-zaafi" /><h3>Tuo-zaafi</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
-      <div class="product-card"><img src="f6.jpg" alt="Rice Ball" /><h3>Rice Ball</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
-      <div class="product-card"><img src="f9.jpg" alt="Plain Rice" /><h3>Plain Rice</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
-      <div class="product-card"><img src="f10.jpg" alt="kokonte" /><h3>Kokonte</h3><p class="price">₵10.00</p><button class="btn" onclick="payWithPaystack('customer@example.com', 549)">Order Now</button></div>
+      <div class="product-card"><img src="f2.jpg" alt="Kenkey" /><h3>Kenkey</h3><p class="price">₵10.00</p><button class="btn" onclick="openModal('Kenkey')">Order Now</button>
+</div>
+      <div class="product-card"><img src="f3.jpg" alt="Waakye" /><h3>Waakye</h3><p class="price">₵10.00</p><button class="btn" onclick="openModal('Waakye')">Order Now</button>
+</div>
+      <div class="product-card"><img src="f4.jpg" alt="Jollof" /><h3>Jollof</h3><p class="price">₵10.00</p><button class="btn" onclick="openModal('Jollof Rice')">Order Now</button>
+</div>
+      <div class="product-card"><img src="f5.jpg" alt="Fufu" /><h3>Fufu</h3><p class="price">₵10.00</p><button class="btn" onclick="openModal('Fufu')">Order Now</button>
+</div>
+      <div class="product-card"><img src="banku.jpg" alt="Banku" /><h3>Banku</h3><p class="price">₵10.00</p><button class="btn" onclick="openModal('Banku')">Order Now</button>
+</div>
+      <div class="product-card"><img src="Tuzaafi.jpg" alt="Tuo-zaafi" /><h3>Tuo-zaafi</h3><p class="price">₵10.00</p><button class="btn" onclick="openModal('Tuo-zaafi')">Order Now</button>
+</div>
+      <div class="product-card"><img src="f6.jpg" alt="Rice Ball" /><h3>Rice Ball</h3><p class="price">₵10.00</p><button class="btn" onclick="openModal(' Rice Ball')">Order Now</button>
+</div>
+      <div class="product-card"><img src="f9.jpg" alt="Plain Rice" /><h3>Plain Rice</h3><p class="price">₵10.00</p><button class="btn" onclick="openModal('Plain Rice')">Order Now</button>
+</div>
+      <div class="product-card"><img src="f10.jpg" alt="kokonte" /><h3>Kokonte</h3><p class="price">₵10.00</p><button class="btn" onclick="openModal('Kokonte')">Order Now</button>
+</div>
     </div>
   </section>
 
@@ -459,19 +469,73 @@
     nav.classList.toggle("active");
   }
 </script>
+<script>
+  function openModal(orderName) {
+    // Show the modal
+    document.getElementById('checkoutModal').style.display = 'flex';
+    // If you want to auto-fill the order details input:
+    document.querySelector('#checkoutModal input[name="order_details"]').value = orderName || '';
+  }
+  function closeModal() {
+    document.getElementById('checkoutModal').style.display = 'none';
+  }
+</script>
+
 
 
 <!-- Checkout Modal -->
-<div id="checkoutModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000b3; justify-content:center; align-items:center; z-index:2000;">
-  <div style="background:white; padding:2rem; border-radius:10px; max-width:400px; width:90%;">
-    <h3 style="margin-bottom:1rem;">Enter Your Details</h3>
-    <input type="text" id="customerName" placeholder="Full Name" style="width:100%; padding:0.5rem; margin-bottom:0.5rem;" required />
-    <input type="email" id="customerEmail" placeholder="Email Address" style="width:100%; padding:0.5rem; margin-bottom:1rem;" required />
-    <button onclick="startPayment()" class="btn" style="width:100%;">Proceed to Payment</button>
-    <br><br>
-    <button onclick="closeModal()" style="width:100%; background:#ccc; color:#000; border:none; padding:0.5rem; border-radius:5px;">Cancel</button>
-  </div>
+ <div id="checkoutModal"
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000b3; justify-content:center; align-items:center; z-index:2000;">
+<form id="orderForm"
+
+      style="background:white; padding:2rem; border-radius:10px; max-width:400px; width:90%;">
+  <h3 style="margin-bottom:1rem;">Enter Your Details</h3>
+  <input type="text" name="customer_name" placeholder="Full Name"
+         style="width:100%; padding:0.5rem; margin-bottom:0.5rem;" required />
+  <input type="email" name="customer_email" placeholder="Email Address"
+         style="width:100%; padding:0.5rem; margin-bottom:0.5rem;" required />
+  <input type="text" name="order_details" placeholder="Your Order (e.g., Jollof Rice)"
+         style="width:100%; padding:0.5rem; margin-bottom:1rem;" required />
+         <input type="number" name="quantity" placeholder="Quantity" min="1" value="1" style="width:100%; padding:0.5rem; margin-bottom:1rem;" required />
+<div id="successMessage" style="display:none; text-align:center; padding:2rem;">
+  <h3>Thank you for your order!</h3>
+  <p>We have received your details.</p>
 </div>
+  <button type="submit" class="btn" style="width:100%;">Submit Order</button>
+  <br><br>
+  <button type="button" onclick="closeModal()"
+          style="width:100%; background:#ccc; color:#000; border:none; padding:0.5rem; border-radius:5px;">
+    Cancel
+  </button>
+</form>
+ </div>
+ <script>
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // stop page reload
+
+  // Get customer details
+  const name = this.customer_name.value.trim();
+  const email = this.customer_email.value.trim();
+  const order = this.order_details.value.trim();
+  const quantity = parseInt(this.quantity.value.trim(), 10);
+
+  if (!name || !email || !order || !quantity || quantity <= 0) {
+    alert('Please fill all fields correctly.');
+    return;
+  }
+
+  // You can set your unit price here (e.g., GHS10 per item)
+  const unitPrice = 10; // in Ghana cedis
+  const totalAmount = unitPrice * quantity;
+
+  // Call Paystack payment
+  payWithPaystack(email, totalAmount);
+
+  // Optional: close modal after payment
+  // closeModal();
+});
+</script>
+
 
 </body>
 </html>
